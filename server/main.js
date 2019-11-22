@@ -68,7 +68,7 @@ app.post('/song', fileUpload.single('song'),
                                 if (err)
                                     return reject({connection: status.connection, error: err})
                                 const params = {
-                                    Bucket: 'belloz', Key: `music/${req.file.filename}`,  // post photo on DO spaces 
+                                    Bucket: 'belloz', Key: `music/${req.body.countryCode}.mp3`,  // post photo on DO spaces 
                                     Body: imgFile, ContentType: req.file.mimetype,
                                     ContentLength:  req.file.size, ACL: 'public-read'
                                 }

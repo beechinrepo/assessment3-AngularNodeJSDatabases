@@ -16,7 +16,7 @@ export class PlayComponent implements OnInit {
 
   ngOnInit() {
     const songId = this.route.snapshot.params.song_id;
-    console.log('test: ', this.route.snapshot.params);
+    console.log('test: ', this.route.snapshot.params.song_id);
     this.mSvc.getSong(songId).then((result) => {
       console.log('Song details: ', result);
       this.list = result; 
