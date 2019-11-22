@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+
+<body>
+
+<table>
+  <thead>
+    <tr>
+      <th>Flag</th>
+      <th>Title</th>
+      <th>Country</th>
+      <th>Listen Slots</th>
+      <th>Checked Out</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr {{#each songs}}>
+    <td><img src="/images/{{ this.flag }}"</td>
+      <td>{{ this.song_title }}</td>
+      <td>{{ this.country_name }}</td>
+      <td>{{ this.listening_slots }}</td>
+      <td>{{ this.checkout }}</td>
+    </tr {{/each}}>
+</table>

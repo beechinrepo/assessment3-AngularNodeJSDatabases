@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+
+<body>
+
+<table>
+  <thead>
+    <tr>
+      <th>Flag</th>
+      <th>Title</th>
+      <th>Country</th>
+      <th>Listen Slots</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor= "let item of list" >
+    <td><img src="https://belloz.sgp1.digitaloceanspaces.com/images/{{item.flag}}"></td>
+      <td>{{ item.song_title }}</td>
+      <td>{{ item.country_name }}</td>
+
+      <td *ngIf = "item.listening_slots < 1"><p>Not Available</p></td>
+      <td *ngIf = "item.listening_slots > 0"><button (click)= "nextPage(item.song_id)">Listen</button></td>
+    </tr>
+</table>
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Song Upload</title>
+		<link rel="stylesheet" href="/index.css">
+	</head>
+	<body>
+		<h1>Song Upload</h1>
+
+		<form method="post" action="/song" enctype="multipart/form-data">
+			<table>
+				<tr> <td><label for="song_title">Title: </label></td> </tr>
+				<tr>
+					<td>
+						<input id="song_title" type="text" name="song_title" size="40" required>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>Country: </p>
+						<select name="countryCode" id="">
+							<option data-countryCode="jp" value="jp" Selected>Japan</option>
+							<option data-countryCode="my" value="my" Selected>Malaysia</option>
+							<option data-countryCode="ru" value="ru" Selected>Russia</option>
+							<option data-countryCode="sg" value="sg" Selected>Singapore</option>
+							<option data-countryCode="uk" value="uk" Selected>UK</option>
+							<option data-countryCode="us" value="us" Selected>US</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>Listen Slots: </p>
+						<select name="listening_slots" id="">
+							<option data-listening_slots="1" value="1" Selected>1</option>
+							<option data-listening_slots="2" value="2" Selected>2</option>
+							<option data-listening_slots="3" value="3" Selected>3</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><label for="lyrics">Lyrics: </label></td>
+				</tr>
+				<tr>
+					<td>
+						<textarea id="lyrics" name="lyrics" cols="50" rows="10"></textarea>
+					</td>
+				</tr>
+				<tr> <td><label for="song">MP3 File: </label></td> </tr>
+				<tr>
+					<td>
+						<input id="song" type="file" name="song" size="30" required>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<button type="submit">Upload</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
+
+
+
+<!-- 
+<form method="post" action="/upload" enctype="multipart/form-data">
+
+<label for="title">Title</label>
+<br>
+<input type="text" id="title" name="title">
+<br>
+
+<label for="by">By</label>
+<br>
+<input type="email" id="email" name="email">
+<br>
+
+<label for="article">Article</label>
+<br>
+<textarea id="article" name="article" cols="30" rows="10"></textarea>
+<br>
+
+<label for="myImage">Image</label>
+<br>
+<input type="file" name="myImage" id="myImage"
+    ngModel #imageFile accept="image/png">
+
+<br>
+<button type="submit">Upload</button>
+
+</form> -->

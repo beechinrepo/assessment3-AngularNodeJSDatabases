@@ -1,0 +1,53 @@
+Task 1
+Write your schemas below. Consider your MySQL database as part of the given music database.
+Explain briefly your choice of persistence store.
+
+**Use SQL to store data with fixed schema:
+
+create table users (
+	user_id varchar(8) not null,
+	username varchar(32) not null,
+	primary key (user_id)
+);
+
+create table song_info (
+	song_id varchar(128) not null,
+    song_title varchar(128) not null,
+    mp3_file text not null,
+    lyrics varchar(128) not null,
+    listening_slots int default 3
+
+    primary key(song_id)
+)
+
+**mp3_file: upload to s3 after inputting data in table song_info.
+
+**Use MongoDB to store streaming Data:
+
+conns.mongodb.db('music').collection('song_history')
+    .insert({
+        song_title: req.song_title,
+        user: req.user,
+        checkout: new Date()
+    });
+
+conns.mongodb.db('music').collection('song_status')
+    .insert({
+        user: req.user,
+        song_title: req.song_title,
+        checkout: new Date()
+    });
+
+conns.mongodb.db('music').collection('user_history') 
+    .insert({
+        song_title: req.song_title,
+        checkout: new Date()
+    });
+
+
+Task 7
+Using the information capture by your application's data model and the database connections/pool declared in your application, show using JavaScript, the ranking of national anthems by their listening popularity across your service's user base. You should rank your the songs from the most popular to the least popular. The ranking information must include the following 
+- song name
+- number of the times it was listen
+- the last time (date and time) the song was listen
+
